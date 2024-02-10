@@ -2,12 +2,11 @@ package tech.ada.locadoraveiculos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tech.ada.locadoraveiculos.model.Veiculo;
 import tech.ada.locadoraveiculos.service.VeiculoService;
+
+import java.util.List;
 
 @RestController //para API REST
 //@Controller     //para MVC
@@ -24,5 +23,23 @@ public class VeiculoRestController {
 
         return String.format("Veiculo com placa %s, criado com sucesso!", veiculo.getPlaca());
     }
+
+    @GetMapping("/todos")
+    public List<Veiculo> todos() {
+        return this.veiculoService.listarTodos();
+    }
+
+    @GetMapping("por-id/{id}")
+    public Veiculo buscarPorId(@PathVariable("{id}") Long id) {
+        return this.veiculoService.buscarVeiculoPorId(id);
+    }
+
+
+    /*
+    * C - Creat - POST - Aceita Body
+    * R - Read  - GET
+    * U - Update - PUT - Aceita Body
+    * D - Delete - DELETE
+    * */
 
 }
