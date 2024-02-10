@@ -30,8 +30,19 @@ public class VeiculoRestController {
     }
 
     @GetMapping("por-id/{id}")
-    public Veiculo buscarPorId(@PathVariable("{id}") Long id) {
+    public Veiculo buscarPorId(@PathVariable("id") Long id) {
         return this.veiculoService.buscarVeiculoPorId(id);
+    }
+
+    @PutMapping("/alterar")
+    public Veiculo alterar(@RequestBody Veiculo veiculo) {
+        return this.veiculoService.alterarVeiculo(veiculo);
+    }
+
+    @DeleteMapping("/remover-por-id/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        this.veiculoService.deletarVeiculo(id);
+        return String.format("Veiculo com id %d, removido com sucesso!");
     }
 
 

@@ -7,6 +7,7 @@ import tech.ada.locadoraveiculos.model.Veiculo;
 import tech.ada.locadoraveiculos.repository.VeiculoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VeiculoService {
@@ -23,7 +24,35 @@ public class VeiculoService {
     }
 
     public Veiculo buscarVeiculoPorId(Long id) {
-        return null;
+
+        Optional<Veiculo> optionalVeiculo = this.veiculoRepository.findById(id);
+        if(optionalVeiculo.isPresent()) {
+            return optionalVeiculo.get();
+        } else {
+            return null;
+        }
+
+    }
+
+
+    public Veiculo alterarVeiculo(Veiculo veiculo) {
+
+        Veiculo veiculoBD = this.buscarVeiculoPorId(veiculo.getId());
+
+        Veiculo veiculoAlterado = new Veiculo();
+        veiculoAlterado.setId(veiculoBD.getId());
+        veiculoAlterado.setPlaca(veiculo.getPlaca());
+        veiculoAlterado.setMarca(veiculo.getMarca());
+        veiculoAlterado.setModelo(veiculo.getModelo());
+        veiculoAlterado.setTipo(veiculo.getTipo());
+        veiculoAlterado.setDisponivel(veiculo.getDisponivel());
+
+        return this.veiculoRepository.save(veiculoAlterado);
+
+    }
+
+    public void deletarVeiculo(Long id) {
+
     }
 
 }

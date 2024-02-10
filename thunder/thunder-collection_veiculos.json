@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "veiculos",
+    "dateExported": "2024-02-10T00:54:55.952Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "53ab244f-19ad-4753-9e6d-9bdf5e5427a6",
+            "colId": "122aa2fd-8a2c-4581-a192-99f33090f649",
+            "containerId": "",
+            "name": "criar",
+            "url": "http://localhost:8082/veiculo/criar",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-09T23:19:32.456Z",
+            "modified": "2024-02-09T23:56:37.398Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"placa\": \"XPTO5678\",\n  \"marca\": \"Ferrari\",\n  \"modelo\": \"F10\",\n  \"tipo\": \"Esportivo\",\n  \"disponivel\": false\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "af1de1d6-bf8b-4440-b08b-ba004b64361a",
+            "colId": "122aa2fd-8a2c-4581-a192-99f33090f649",
+            "containerId": "",
+            "name": "todos",
+            "url": "http://localhost:8082/veiculo/todos",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-09T23:54:38.035Z",
+            "modified": "2024-02-09T23:54:51.064Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e5464569-6a0b-445b-a8e9-8e6d6a633824",
+            "colId": "122aa2fd-8a2c-4581-a192-99f33090f649",
+            "containerId": "",
+            "name": "por-id",
+            "url": "http://localhost:8082/veiculo/por-id/2",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-02-10T00:01:04.897Z",
+            "modified": "2024-02-10T00:52:48.661Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8fafd0b8-04b2-4bd2-8400-d4f53c3a16bf",
+            "colId": "122aa2fd-8a2c-4581-a192-99f33090f649",
+            "containerId": "",
+            "name": "remover",
+            "url": "http://localhost:8082/veiculo/por-id/2",
+            "method": "DELETE",
+            "sortNum": 45000,
+            "created": "2024-02-10T00:53:42.713Z",
+            "modified": "2024-02-10T00:54:43.534Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "be0d4c6a-912f-4d0f-899e-b05419bac405",
+            "colId": "122aa2fd-8a2c-4581-a192-99f33090f649",
+            "containerId": "",
+            "name": "alterar",
+            "url": "http://localhost:8082/veiculo/alterar",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-02-10T00:49:02.501Z",
+            "modified": "2024-02-10T00:52:19.126Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"2\",\n  \"placa\": \"XPTO5678\",\n  \"marca\": \"Ferrari\",\n  \"modelo\": \"F40\",\n  \"tipo\": \"Esportivo\",\n  \"disponivel\": true\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
