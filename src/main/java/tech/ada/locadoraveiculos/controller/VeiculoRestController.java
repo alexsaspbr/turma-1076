@@ -45,6 +45,11 @@ public class VeiculoRestController {
         return String.format("Veiculo com id %d, removido com sucesso!");
     }
 
+    @GetMapping("/por-placa/{placa}")
+    public Veiculo buscarPorPlaca(@PathVariable("placa") String placa) {
+        return this.veiculoService.buscarVeiculoPorPlaca(placa);
+    }
+
 
     /*
     * C - Creat - POST - Aceita Body

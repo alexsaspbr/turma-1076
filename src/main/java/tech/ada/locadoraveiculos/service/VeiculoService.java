@@ -55,4 +55,8 @@ public class VeiculoService {
 
     }
 
+    public Veiculo buscarVeiculoPorPlaca(String placa) {
+
+        return null;
+    }
 }
