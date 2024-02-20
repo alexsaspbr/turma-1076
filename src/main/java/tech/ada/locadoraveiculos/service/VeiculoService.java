@@ -7,11 +7,12 @@ import tech.ada.locadoraveiculos.model.Veiculo;
 import tech.ada.locadoraveiculos.repository.VeiculoRepository;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
 public class VeiculoService {
-
+    
     @Autowired
     private VeiculoRepository veiculoRepository;
 
@@ -56,7 +57,25 @@ public class VeiculoService {
     }
 
     public Veiculo buscarVeiculoPorPlaca(String placa) {
-
-        return null;
+        try {
+            Veiculo veiculo = this.veiculoRepository.findByPlaca(placa);
+            if(Objects.nonNull(veiculo))
+                return veiculo;
+            else
+                throw new RuntimeException(String.format("Nenhum veiculo encontrado para a placa %s", placa));
+        } catch (Exception e) {
+            throw e;
+        }
     }
+
+    public void deletarVeiculo(String placa) {
+        try {
+            Veiculo veiculo = this.buscarVeiculoPorPlaca(placa);
+            this.veiculoRepository.delete(veiculo);
+        } catch(Exception e) {
+            throw e;
+        }
+        //this.veiculoRepository.findByPlacaOp(placa).ifPresent(veiculoRepository::delete);
+    }
+
 }

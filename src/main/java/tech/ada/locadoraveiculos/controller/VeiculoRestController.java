@@ -1,6 +1,8 @@
 package tech.ada.locadoraveiculos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import tech.ada.locadoraveiculos.model.Veiculo;
@@ -50,6 +52,15 @@ public class VeiculoRestController {
         return this.veiculoService.buscarVeiculoPorPlaca(placa);
     }
 
+    @DeleteMapping("/remover-por-placa/{placa}")
+    public ResponseEntity<String> removerPorPlaca(@PathVariable("placa") String placa) {
+        try {
+            this.veiculoService.deletarVeiculo(placa);
+            return ResponseEntity.ok(String.format("Veiculo com a placa %s removido com sucesso!", placa));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
 
     /*
     * C - Creat - POST - Aceita Body
